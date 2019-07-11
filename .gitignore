@@ -3,6 +3,8 @@
 # WebStorm
 /.idea
 
+/dist
+
 # Firebase
 /.firebase
 
