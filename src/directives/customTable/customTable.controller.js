@@ -1,4 +1,3 @@
-import faker from 'faker';
 import styles from './customTable.module.css';
 
 const customTableController = ($scope) => {
@@ -7,12 +6,23 @@ const customTableController = ($scope) => {
 
     $scope.rows = [];
 
-    const array = [];
-    for (let i = 0; i < 10; i++) {
-        array.push(faker.helpers.createTransaction());
+    function getVendor() {
+        return import(/* webpackChunkName: "faker" */ 'faker').then(({default: faker}) => {
+            return faker;
+
+        }).catch(error => 'An error occurred while loading the component');
     }
 
-    $scope.rows = array;
+    getVendor().then(faker => {
+        const array = [];
+        for (let i = 0; i < 10; i++) {
+            array.push(faker.helpers.createTransaction());
+        }
+
+        $scope.$apply(function(){
+            $scope.rows = array;
+        });
+    });
 
 };
 
