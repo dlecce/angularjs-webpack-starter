@@ -28,6 +28,22 @@ module.exports = {
                     'ngtemplate-loader',
                     'html-loader'
                 ]
+            },
+            {
+                test: /\.module.css$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true,
+                            modules: true
+                        }
+                    }
+                ]
             }
         ]
     },
