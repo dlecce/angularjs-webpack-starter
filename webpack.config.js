@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
@@ -30,6 +31,14 @@ module.exports = {
                 ]
             },
             {
+                test: /\.css$/,
+                exclude: /\.module\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
                 test: /\.module.css$/,
                 use: [
                     {
@@ -46,15 +55,23 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
         ]
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Test',
-            filename: 'test.html',
-            template: 'html/test.html'
+            title: 'Greeting',
+            filename: 'greeting.html',
+            template: 'html/greeting.html'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Custom Table',
+            filename: 'customTable.html',
+            template: 'html/customTable.html'
+        }),
+        new HtmlWebpackTagsPlugin({
+            links: 'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap'
         })
     ]
 };

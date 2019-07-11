@@ -1,0 +1,21 @@
+<div class="{{styles.CustomTable}}">
+    <h1>{{title}}</h1>
+    <table>
+        <thead>
+        <td>Amount</td>
+        <td>Business</td>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Account</td>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in rows">
+            <td>{{row.amount}}</td>
+            <td>{{row.business}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.type}}</td>
+            <td>{{row.account}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

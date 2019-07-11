@@ -1,0 +1,19 @@
+.CustomTable h1 {
+    text-align: center;
+}
+
+.CustomTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.CustomTable table thead td {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 7px;
+}
+
+.CustomTable table tbody td {
+    border-bottom: 1px solid lightblue;
+    padding: 5px;
+}
